@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pricing.css">
+    <title>Monthly pricing list</title>
+</head>
+
+<body>
+    <div id="confirmationMessage" class="mt-3"></div>
+    <section id="monthlyPricing">
+        <h1>Monthly pricing list plan</h1>
+        <div class="container mt-5">
+            <div class="toggle-button" onclick="togglePricing('annualPricing')">Monthly Bill</div>
+
+            <label class="switch">
+                <input class="toggle-input" type="checkbox" onclick="togglePricing('annualPricing')">
+                <span class="slider round"></span>
+            </label>
+
+            <div class="toggle-button" onclick="togglePricing('annualPricing')">Annual Bill</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card pricing-card" id="starterPlan">
+                    <div class="card-header">
+                        <h2>Starter</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="price" id="starterPrice">$106/month</p>
+                        <ul>
+                            <li>Basic Manicure</li>
+                            <li>Deluxe Pedicure</li>
+                            <li>Nail Art</li>
+                            <li>Classic Pedicure</li>
+                            <li>Gel Nails - Full Set</li>
+                            <button onclick="openModal('Starter')">Choose Plan</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card pricing-card" id="proPlan">
+                    <div class="card-header">
+                        <h2>Pro</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="price" id="proPrice">$100/month</p>
+                        <ul>
+                            <li>Manicure with Nail Art</li>
+                            <li>Deluxe Pedicure with Exfoliation</li>
+                            <li>French Manicure</li>
+                            <li>Classic Pedicure</li>
+                            <li>Gel Nails - Full Set</li>
+                            <button onclick="openModal('Pro')">Choose Plan</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card pricing-card" id="premiumPlan">
+                    <div class="card-header">
+                        <h2>Premium</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="price" id="premiumPrice">$400/month</p>
+                        <ul>
+                            <li>Manicure with Nail Art and Paraffin Wax</li>
+                            <li>Deluxe Pedicure with Exfoliation and Mask</li>
+                            <li>3D Nail Art</li>
+                            <li>Classic Pedicure with Hot Stones</li>
+                            <li>Gel Nails - Full Set with Nail Extensions</li>
+                            <button onclick="openModal('Premium')">Choose Plan</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section id="annualPricing" style="display:none;">
+        <h1>Annual pricing list plan</h1>
+        <div class="container mt-5">
+            <div class="toggle-button" onclick="togglePricing('monthlyPricing')" checked>Annual Bill</div>
+
+            <label class="switch">
+                <input class="toggle-input" type="checkbox" onclick="togglePricing('monthlyPricing')" checked>
+                <span class="slider round"></span>
+            </label>
+
+            <div class="toggle-button" onclick="togglePricing('monthlyPricing')">Monthly Bill</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card pricing-card" id="starterPlan">
+                    <div class="card-header">
+                        <h2>Starter</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="price" id="starterPrice">$900/year</p>
+                        <ul>
+                            <li>Basic Manicure</li>
+                            <li>Deluxe Pedicure</li>
+                            <li>Nail Art</li>
+                            <li>Classic Pedicure</li>
+                            <li>Gel Nails - Full Set</li>
+                            <button onclick="openModal('Starter')">Choose Plan</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card pricing-card" id="proPlan">
+                    <div class="card-header">
+                        <h2>Pro</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="price" id="proPrice">$1000/year</p>
+                        <ul>
+                            <li>Manicure with Nail Art</li>
+                            <li>Deluxe Pedicure with Exfoliation</li>
+                            <li>French Manicure</li>
+                            <li>Classic Pedicure</li>
+                            <li>Gel Nails - Full Set</li>
+                            <button onclick="openModal('Pro')">Choose Plan</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card pricing-card" id="premiumPlan">
+                    <div class="card-header">
+                        <h2>Premium</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="price" id="premiumPrice">$4000/year</p>
+                        <ul>
+                            <li>Manicure with Nail Art and Paraffin Wax</li>
+                            <li>Deluxe Pedicure with Exfoliation and Mask</li>
+                            <li>3D Nail Art</li>
+                            <li>Classic Pedicure with Hot Stones</li>
+                            <button onclick="openModal('Premium')">Choose Plan</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <div class="modal" id="choosePlanModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Choose Your Plan</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <p>Select your plan:</p>
+                    <select id="planOptions">
+                        <option value="Starter">Starter</option>
+                        <option value="Pro">Pro</option>
+                        <option value="Premium">Premium</option>
+                    </select>
+                    
+                    <p>Select features:</p>
+                    <select id="featureOptions">
+                        <!-- Add your list of features here -->
+                        <option value="Basic Manicure">Basic Manicure</option>
+                        <option value="Deluxe Pedicure">Deluxe Pedicure</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="confirmPlan()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="pricing.js"></script>
+    <script>
+      
+    </script>
+
+</body>
+
+</html>
